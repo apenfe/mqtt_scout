@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Family;
 use Illuminate\Http\Request;
 
 class FamilyController extends Controller
@@ -11,7 +12,10 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        return view('families.index');
+        //OBTENER TODAS LAS FAMILIAS
+        $families = Family::all();
+
+        return view('families.index', compact('families'));
     }
 
     /**

@@ -15,7 +15,7 @@ class FamilySeeder extends Seeder
     {
         DB::table('families')->insert([
             [
-                'name' => 'Familia 1',
+                'name' => 'Ipex-16',
                 'image' => 'familia1.jpg',
                 'description' => 'Descripción de la Familia 1',
             ],
