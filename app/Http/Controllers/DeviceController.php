@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DeviceRequest;
 use App\Models\Device;
+use App\Models\Family;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller
@@ -21,15 +23,18 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        return view('devices.create');
+        $families = Family::all();
+        return view('devices.create', compact('families'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DeviceRequest $request)
     {
-        //
+        Device::create($request->validated());
+
+        return to_route('devices.index')->with('success', 'Device created successfully.');
     }
 
     /**
