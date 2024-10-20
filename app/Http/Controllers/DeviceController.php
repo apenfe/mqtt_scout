@@ -21,7 +21,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        //
+        return view('devices.create');
     }
 
     /**
